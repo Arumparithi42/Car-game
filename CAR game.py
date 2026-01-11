@@ -98,7 +98,7 @@ def CARGAME():
             carpos[1] += 5
         # Enable flying (when space bar is pressed)
         if not fly:
-            if key[pg.K_SPACE]:
+            if key[pg.K_SPACE] and int(flyn) > 0:
                 flyn -= 1
                 fly = True
         else:
@@ -106,7 +106,7 @@ def CARGAME():
                 if flycount >= 0:
                     # Loading and displaying flying car image
                     flycarimg = pg.image.load("images//car image-Copy.png")
-                    flycarpos = [carpos[0] - 11, carpos[1]]
+                    flycarpos = [carpos[0], carpos[1]]
                     win.blit(flycarimg, (flycarpos[0], flycarpos[1]))
                     pg.display.flip()
                     pg.display.update()
@@ -207,7 +207,7 @@ def CARGAME():
         win.blit(ss, sr)
         # Displaying fly count
         ff = pg.font.SysFont("monoco", 25)
-        fs = ff.render("FLY :" + str(flyn), True, (0, 255, 255))
+        fs = ff.render("FLY :" + str(int(flyn)), True, (0, 255, 255))
         fr = fs.get_rect()
         fr.midtop = (450, 20)
         win.blit(fs, fr)
