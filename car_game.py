@@ -173,7 +173,7 @@ def CARGAME():
         objspawn = True
 
         # Respawn obj2 (unlocks at score > 100)
-        if score > 100:
+        if score > 80:
             if obj2[1] > 500:
                 score += 10
                 objspawn2 = False
@@ -182,7 +182,7 @@ def CARGAME():
             objspawn2 = True
 
         # Respawn obj3 (unlocks at score > 500)
-        if score > 500:
+        if score > 400:
             if obj3[1] > 500:
                 score += 10
                 objspawn3 = False
@@ -191,7 +191,7 @@ def CARGAME():
             objspawn3 = True
 
         # Respawn obj4 (unlocks at score > 1000)
-        if score > 1000:
+        if score > 800:
             if obj4[1] > 500:
                 score += 10
                 objspawn4 = False
@@ -216,19 +216,19 @@ def CARGAME():
         pg.draw.line(win, (50, 50, 50), (0, 400), (500, 400), 3)
 
         # Displaying current level based on score
-        if score < 100:
+        if score < 80:
             l = pg.font.SysFont("monoco", 25)
             ls = l.render("LEVEL 1", True, lblue)
             lr = ls.get_rect()
             lr.midtop = (250, 10)
             win.blit(ls, lr)
-        elif score >= 100 and score < 500:
+        elif score >= 80 and score < 400:
             ll = pg.font.SysFont("monoco", 25)
             lls = ll.render("LEVEL 2", True, lblue)
             llr = lls.get_rect()
             llr.midtop = (250, 10)
             win.blit(lls, llr)
-        elif score >= 500 and score < 1000:
+        elif score >= 400 and score < 800:
             lll = pg.font.SysFont("monoco", 25)
             llls = lll.render("LEVEL 3", True, lblue)
             lllr = llls.get_rect()
@@ -247,43 +247,43 @@ def CARGAME():
             if carpos[1] < obj[1] + 50 and carpos[1] + height > obj[1]:
                 if (carpos[0] > obj[0] and carpos[0] < obj[0] + 50 or carpos[0] + width > obj[0] and carpos[0] + width < obj[0] + 50) or carpos[0] == obj[0]:
                     gameover()
-                    n = input("DO YOU WANT TO RESTART :")
+                    n = input("DO YOU WANT TO RESTART(y/n):").lower()
                     if 'y' in n:
                         CARGAME()  # restart
                     else:
                         exit()
             # Checking collision with obj2 (level 2)
-            if score > 100:
+            if score > 80:
                 ecarimg = pg.image.load("images//enemy car2.png")
                 win.blit(ecarimg, (obj2[0], obj2[1]))
                 if carpos[1] < obj2[1] + 50 and carpos[1] + height > obj2[1]:
                     if (carpos[0] > obj2[0] and carpos[0] < obj2[0] + 50 or carpos[0] + width > obj2[0] and carpos[0] + width < obj2[0] + 50) or carpos[0] == obj2[0]:
                         gameover()
-                        n = input("DO YOU WANT TO RESTART :")
+                        n = input("DO YOU WANT TO RESTART(y/n):").lower()
                         if 'y' in n:
                             CARGAME() # restart
                         else:
                             exit()
             # Checking collision with obj3 (level 3)
-            if score > 500:
+            if score > 400:
                 ecarimg = pg.image.load("images//enemy car1.png")
                 win.blit(ecarimg, (obj3[0], obj3[1]))
                 if carpos[1] < obj3[1] + 50 and carpos[1] + height > obj3[1]:
                     if (carpos[0] > obj3[0] and carpos[0] < obj3[0] + 50 or carpos[0] + width > obj3[0] and carpos[0] + width < obj3[0] + 50) or carpos[0] == obj3[0]:
                         gameover()
-                        n = input("DO YOU WANT TO RESTART :")
+                        n = input("DO YOU WANT TO RESTART(y/n):").lower()
                         if 'y' in n:
                             CARGAME() # restart
                         else:
                             exit()
             # Checking collision with obj4 (level 4)
-            if score > 1000:
+            if score > 800:
                 ecarimg = pg.image.load("images//enemy car3.png")
                 win.blit(ecarimg, (obj4[0], obj4[1]))
                 if carpos[1] < obj4[1] + 50 and carpos[1] + height > obj4[1]:
                     if (carpos[0] > obj4[0] and carpos[0] < obj4[0] + 50 or carpos[0] + width > obj4[0] and carpos[0] + width < obj4[0] + 50) or carpos[0] == obj4[0]:
                         gameover()
-                        n = input("DO YOU WANT TO RESTART :")
+                        n = input("DO YOU WANT TO RESTART(y/n):").lower()
                         if 'y' in n:
                             CARGAME()
                         else:

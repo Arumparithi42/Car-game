@@ -19,9 +19,9 @@ A simple car game using Python and Pygame, where a player should avoid hitting i
 - Python 3.x
 - Pygame module (`pip install pygame`)
 
-## Run the game
+## Run the game (in VS Code)
 ```bash
-python CAR game.py
+python car_game.py
 ```
 
 ## Features
@@ -31,7 +31,7 @@ python CAR game.py
 * Built using Pygame
 
 ## Future improvements
-* Blend with GUI
-
+* Blending with GUI(Tkinter)
+* Adding extra cars and levels
 
 This project is licensed under the MIT License.
